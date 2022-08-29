@@ -224,3 +224,4 @@ if __name__ == '__main__': # start the site
     # can enter very first day
     # can enter nothing on first day and not crash everythin
     # can you leave only a signin number yesterday and still add to today?
+    # what happend if a column is cleared an not removed?
