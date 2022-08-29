@@ -31,7 +31,7 @@ def health_check():
 
 @app.route('/') # the index page
 def index(): # retireve list of headers to populate name options list    
-    sheetInstance = gc.open_by_key(os.getenv(SHEET_KEY)) # open sheet via it's key, found in th URL
+    sheetInstance = gc.open_by_key(os.getenv('SHEET_KEY')) # open sheet via it's key, found in th URL
     namesRowAsList = sheetInstance.sheet1.row_values(1) # index starts on 1. get header row. Only the top left cell of merged cells has the value of any of the merged cells.
     namesNoBlanks = sorted(filter(bool, namesRowAsList)) # remove blank items
     return render_template('index.html', names=namesNoBlanks, bool=bool) # this is where vartiables and functions are passed into the template for use in jinja
@@ -40,7 +40,7 @@ def index(): # retireve list of headers to populate name options list
 @app.route('/<string:name>', methods=['POST', 'GET'])
 def name(name):
     # GET AND PREP SHEET VARS
-    gcSheetObject = gc.open_by_key(os.getenv(SHEET_KEY)) # open sheet
+    gcSheetObject = gc.open_by_key(os.getenv('SHEET_KEY')) # open sheet
     sheet1 = gcSheetObject.sheet1.get_all_values() # list of lists      
     headerRow = gcSheetObject.sheet1.row_values(1) # list of header row cells' contents
     userLeftColumnIndex = headerRow.index(name)
