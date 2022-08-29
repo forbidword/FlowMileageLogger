@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel='stylesheet' href='../static/css/index.css'>
+<title>FlowMileageLogger</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <div class="header">
+        <img class='logo' src="../static/logo-sm.png" alt="logo">
+    </div>
+    <div class="names">
+        {% for name in names %}
+            <a href="{{name}}"><!--each link will be made with the each used as a part of a url -->                
+                <h3>{{ name }}</h3>                
+            </a>
+        {% endfor %}
+    </div>    
+</div>    
+{% endblock %}

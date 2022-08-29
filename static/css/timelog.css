@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.content {
+    border: 1px lightgray dashed;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    max-height: 95vh;
+}
+
+.table{
+    text-align: center;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+h3{
+    margin: 18px 0 18px 0;
+}
+
+form {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    justify-content: space-around;
+    flex-basis: 6vh;
+}
+
+.mileageBlockLeft, .mileageBlockRight {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+
+.mileageBlockLeft input {
+    max-width: 150px;
+
+}
+
+.table th, td {
+    border-bottom: 1px solid lightblue;
+    padding: 4px 16px;
+}
+
+th {
+    position: sticky;
+}
+
+.total {
+    font-weight: 600;
+}
+
+.date{
+    display: flex;
+    margin: 0;
+}

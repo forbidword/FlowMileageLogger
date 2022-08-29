@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel='stylesheet' href='../static/css/timelog.css'>
+<title>TimeTable</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    {% if not emptyTable %}
+    <div class="table">
+        <table>
+            {% for row in table  %}<!-- rows for... -->
+                {% if row[0] == 'Total' %}
+                    <tr>
+                        <td class="total">{{row[0]}}</td>
+                        <td>{{row[2]}}</td><!-- blank -->
+                        <td>{{row[2]}}</td><!-- blank -->
+                        <td class="total">{{row[1]}}</td>
+                        
+                    </tr>  
+                {% else %}
+                    <tr>
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            <tr><!-- table row -->
+                <th>Date</th>
+                <th>Start</th> <!-- header, also a column -->
+                <th>End</th>
+                <th>Dist</th>
+            </tr>
+        </table>
+    </div>
+
+    {% endif %}
+    <h3 class="name">{{name}}</h3>
+
+    <form action="/{{name}}" method="post">
+        <div class="mileageBlockLeft">
+            <input type="number" name="startMileage" id="startMileage" value="{{todaysStarting}}" placeholder="{{todaysStarting}}">
+            <input type="number" name="endMileage" id="endMileage" value="{{todaysEnding}}" placeholder="{{todaysEnding}}">
+        </div>
+        <div class="mileageBlockRight">
+            <h4 class="date">{{today}}</h4>
+            <input type="submit" name="submit" id="submit" class='submit'>
+        </div>   
+        
+    </form>
+</div>    
+{% endblock %}
